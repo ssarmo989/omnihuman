@@ -44,10 +44,11 @@ import omnihuman
 import PIL.Image
 
 text = "Raise both hands and clap overhead."
-frames = omnihuman.read_frames("path/to/image.jpg")  # (n_frames, channels, height, width)
+frames = omnihuman.read_frames("path/to/image.jpg")  # (1, channels, height, width)
+# frames = omnihuman.read_frames("path/to/video.mp4")  # (n_frames, channels, height, width)
 
 # model = omnihuman.OmniHuman()
-# frames = model.video_generation(text, frames)
+# frames = model.generate_video(text, frames)
 
 PIL.Image.fromarray(frames[-1].permute(1,2,0).numpy()).show()
 ```

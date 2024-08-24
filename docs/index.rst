@@ -13,3 +13,5 @@ AI model that understands text and humanoids.
    :maxdepth: 2
    :caption: Contents:
 
+   Getting Started <self>
+   OmniHuman Package <omnihuman>
