@@ -33,6 +33,45 @@ extensions = [
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+default_dark_mode = False
+source_encoding = "utf-8"
+autosummary_generate = True
+intersphinx_mapping = {"python": ("https://docs.python.org/3/", None)}
+
+from typing import Optional
+
+import requests
+
+
+def linkcode_resolve(domain, info) -> Optional[str]:
+    """
+    Generates a URL for the given domain and module information.
+
+    Parameters:
+        domain (str): The domain of the link.
+        info (dict): The module information.
+
+    Returns:
+        str | None: The generated URL or None if the URL is not valid.
+    """
+
+    if domain != "py":
+        return None
+    if not info["module"]:
+        return None
+
+    filename = info["module"].replace(".", "/")
+    base_url = "https://github.com/mdsrqbl/omnihuman/blob/main/"
+    for slug in [filename, f"{filename}/__init__.py", f"{filename}.py"]:
+        url = base_url + slug
+        try:
+            if requests.head(base_url + slug, timeout=20).status_code == 200:
+                return url
+        except:
+            pass
+
+    return None
+
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

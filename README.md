@@ -41,17 +41,15 @@ pip install -e .
 
 ```python
 import omnihuman
-import numpy as np
-from PIL import Image
+import PIL.Image
 
 text = "Raise both hands and clap overhead."
-image = Image.open("person.jpg")
-image = [np.array(image)]
+frames = omnihuman.read_frames("path/to/image.jpg")  # (n_frames, channels, height, width)
 
 # model = omnihuman.OmniHuman()
-# frames = model.video_generation(text, image)
+# frames = model.video_generation(text, frames)
 
-Image.fromarray(frames[-1]).show()
+PIL.Image.fromarray(frames[-1].permute(1,2,0).numpy()).show()
 ```
 
 Full documentation is available at [omnihuman.readTheDocs.io](https://omnihuman.readthedocs.io/en/latest/).
