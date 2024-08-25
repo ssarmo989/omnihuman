@@ -1,8 +1,12 @@
 # OmniHuman
 
-AI model that understands text and humanoids.
-
 <div align="center">
+
+<img src="https://github.com/user-attachments/assets/69a319dc-9880-464e-a895-d04640824a12" height=400/>
+
+**AI model that understands humanoids and text.**
+
+<br/>
 
 [![PyPi](https://img.shields.io/pypi/v/omnihuman?logo=pypi)](https://pypi.org/project/omnihuman/)
 [![Documentation Status](https://readthedocs.org/projects/omnihuman/badge/?version=latest)](https://omnihuman.readthedocs.io/en/latest/?badge=latest)
